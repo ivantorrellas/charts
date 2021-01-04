@@ -1,3 +1,10 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
+# ⚠️ Chart Deprecated
+
 # Prisma Helm Chart
 
 [Prisma](https://prisma.io) is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.
@@ -50,9 +57,12 @@ Parameter                        | Description                                  
 `database.connector`             | Database connector                           | `postgres`
 `database.host`                  | Host for the database endpoint               | `""`
 `database.port`                  | Port for the database endpoint               | `""`
+`database.name`                  | Database name for Prisma objects             | `prisma`
 `database.user`                  | Database user                                | `prisma`
 `database.password`              | Database password                            | `""`
 `database.migrations`            | Enable database migrations                   | `true`
+`database.ssl`                   | Enable SSL for DB connections                | `false`
+`database.connectionLimit`       | The maximum number of database connections   | `2`
 `auth.enabled`                   | Enable Prisma Management API authentication  | `false`
 `auth.secret`                    | Secret to use for authentication             | `nil`
 `service.type`                   | Type of Service                              | `ClusterIP`

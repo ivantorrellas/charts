@@ -1,4 +1,13 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Weave Scope
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## About this chart
 
@@ -87,6 +96,7 @@ The **agent** section controls how the Weave Scope node agent pods are installed
 | **dockerBridge** | the name of the Docker bridge interface | `docker0` |
 | **scopeFrontendAddr** | the host:port of a Scope frontend to send data to -- this is only needed in cases where the frontend is deployed separately from the agent (e.g. an install outside the cluster or a pre-existing install inside it) | |
 | **probeToken** | the token used to connect to Weave Cloud -- this is not needed for connecting to non-cloud Scope frontends | |
+| **priorityClassName** | The priorityClassName used for the Daemonset | |
 | **readOnly** | disables all controls (e.g. start/stop, terminal, logs, etc.) | `false` |
 | **resources.*** | controls requests/limits for the agent (these values are all optional) | |
 | **resources.requests.cpu** | CPU request in MHz (m) | |

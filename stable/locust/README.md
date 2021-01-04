@@ -1,7 +1,16 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Locust Helm Chart
 
 This is a templated deployment of [Locust](http://locust.io) for Distributed Load
 testing using Kubernetes.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Pre Requisites:
 
@@ -40,12 +49,13 @@ helm install -n locust-nymph --set master.config.target-host=http://site.example
 | `extraEnvs`                  | List of extra Environment Variables     | `[]`                                                  |
 | `master.config.target-host`  | locust target host                      | `http://site.example.com`                             |
 | `master.nodeSelector`        | k8s nodeselector                        | `{}`                                                  |
-| `master.tolerations`         | k8s tolerance                           | `{}`                                                  |
+| `master.tolerations`         | k8s tolerations                         | `[]`                                                  |
 | `worker.config.locust-script`| locust script to run                    | `/locust-tasks/tasks.py`                              |
 | `worker.config.configmapName`| configmap to mount locust scripts from  | `empty, configmap is created from tasks folder in Chart` |
 | `worker.replicaCount`        | Number of workers to run                | `2`                                                   |
 | `worker.nodeSelector`        | k8s nodeselector                        | `{}`                                                  |
-| `worker.tolerations`         | k8s tolerance                           | `{}`                                                  |
+| `worker.tolerations`         | k8s tolerations                         | `[]`                                                  |
+| `worker.affinities`          | k8s affinities                          | `{}`                                                  |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`
 

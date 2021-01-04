@@ -1,5 +1,14 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Cassandra
 A Cassandra Chart for Kubernetes
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Install Chart
 To install the Cassandra Chart into your Kubernetes cluster (This Chart requires persistent volume by default, you may need to create a storage class before install chart. To create storage class, see [Persist data](#persist_data) section)
@@ -99,7 +108,7 @@ The following table lists the configurable parameters of the Cassandra chart and
 | Parameter                  | Description                                     | Default                                                    |
 | -----------------------    | ---------------------------------------------   | ---------------------------------------------------------- |
 | `image.repo`                         | `cassandra` image repository                    | `cassandra`                                                |
-| `image.tag`                          | `cassandra` image tag                           | `3.11.3`                                                   |
+| `image.tag`                          | `cassandra` image tag                           | `3.11.5`                                                   |
 | `image.pullPolicy`                   | Image pull policy                               | `Always` if `imageTag` is `latest`, else `IfNotPresent`    |
 | `image.pullSecrets`                  | Image pull secrets                              | `nil`                                                      |
 | `config.cluster_domain`              | The name of the cluster domain.                 | `cluster.local`                                            |
@@ -128,6 +137,7 @@ The following table lists the configurable parameters of the Cassandra chart and
 | `persistence.size`                   | Size of data volume                             | `10Gi`                                                     |
 | `resources`                          | CPU/Memory resource requests/limits             | Memory: `4Gi`, CPU: `2`                                    |
 | `service.type`                       | k8s service type exposing ports, e.g. `NodePort`| `ClusterIP`                                                |
+| `service.annotations`                | Annotations to apply to cassandra service       | `""`                                                       |
 | `podManagementPolicy`                | podManagementPolicy of the StatefulSet          | `OrderedReady`                                             |
 | `podDisruptionBudget`                | Pod distruption budget                          | `{}`                                                       |
 | `podAnnotations`                     | pod annotations for the StatefulSet             | `{}`                                                       |
@@ -157,12 +167,16 @@ The following table lists the configurable parameters of the Cassandra chart and
 | `backup.destination`                 | Destination to store backup artifacts           | `s3://bucket/cassandra`                                    |
 | `backup.google.serviceAccountSecret` | Secret containing credentials if GCS is used as destination |                                                |
 | `exporter.enabled`                   | Enable Cassandra exporter                       | `false`                                                    |
-| `exporter.servicemonitor`            | Enable ServiceMonitor for exporter              | `true`                                                    |
+| `exporter.servicemonitor.enabled`    | Enable ServiceMonitor for exporter              | `true`                                                    |
+| `exporter.servicemonitor.additionalLabels`| Additional labels for Service Monitor           | `{}`                                                       |
 | `exporter.image.repo`                | Exporter image repository                       | `criteord/cassandra_exporter`                              |
 | `exporter.image.tag`                 | Exporter image tag                              | `2.0.2`                                                    |
 | `exporter.port`                      | Exporter port                                   | `5556`                                                     |
 | `exporter.jvmOpts`                   | Exporter additional JVM options                 |                                                            |
 | `exporter.resources`                 | Exporter CPU/Memory resource requests/limits    | `{}`                                                       |
+| `extraContainers`                    | Sidecar containers for the pods                 | `[]`                                                       |
+| `extraVolumes`                       | Additional volumes for the pods                 | `[]`                                                       |
+| `extraVolumeMounts`                  | Extra volume mounts for the pods                | `[]`                                                       |
 | `affinity`                           | Kubernetes node affinity                        | `{}`                                                       |
 | `tolerations`                        | Kubernetes node tolerations                     | `[]`                                                       |
 

@@ -1,4 +1,13 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # ClamAV
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ##  An Open-Source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 
@@ -31,6 +40,8 @@ $ helm install --name my-release stable/clamav
 The command deploys ClamAV on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
+
+In order to deploy this chart under Kubernetes 1.9+, the `kubeMeta.deploymentApiVersion` MUST be set to "apps/v1".
 
 ## Uninstalling the Chart
 

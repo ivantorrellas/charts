@@ -1,8 +1,16 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Schema-Registry-UI Helm Chart
 This helm chart creates a [Schema-Registry-UI server](https://github.com/Landoop/schema-registry-ui).
 
 This is a web tool for the confluentinc/schema-registry in order to create / view / search / evolve / view history & configure Avro schemas of your Kafka cluster.
 
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Prerequisites
 * Kubernetes 1.8
@@ -65,6 +73,10 @@ The following table lists the configurable parameters of the SchemaRegistryUI ch
 | `schemaRegistry.url` | URL to the schema registry endpoint | `http://localhost` |
 | `schemaRegistry.port` | Port for the schema registry | `8081` |
 | `schemaRegistry.proxy` | Whether to proxy Schema Registry endpoint via the internal webserver | `false` |
+| `schemaRegistry.allowGlobal` | Support for global compatibility level configuration support —i.e change the default compatibility level of your schema registry | `false` |
+| `schemaRegistry.allowTransitive` | Support for transitive compatibility levels (Schema Registry version 3.1.1 or better) | `false` |
+| `schemaRegistry.allowDeletion` | Support for Schema deletion (Schema Registry version 3.3.0 or better) | `false` |
+| `schemaRegistry.readOnlyMode` | Support for readonly mode (overwrites settings for global compatibility configuration and schema deletion) | `false` |
 | `service.type` | Type of the service | `LoadBalancer` |
 | `service.port` | Port to use | `80` |
 | `service.annotations` | Kubernetes service annotations | `{}` |

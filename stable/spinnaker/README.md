@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Spinnaker Chart
 
 [Spinnaker](http://spinnaker.io/) is an open source, multi-cloud continuous delivery platform.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Chart Details
 This chart will provision a fully functional and fully featured Spinnaker installation
@@ -103,6 +112,10 @@ dockerRegistries:
 #   username: _json_key
 #   password: '<INSERT YOUR SERVICE ACCOUNT JSON HERE>'
 #   email: 1234@5678.com
+# - name: ecr
+#   address: <AWS-ACCOUNT-ID>.dkr.ecr.<REGION>.amazonaws.com
+#   username: AWS
+#   passwordCommand: aws --region <REGION> ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d | sed 's/^AWS://'
 ```
 
 You can provide passwords as a Helm value, or you can use a pre-created secret containing your registry passwords.  The secret should have an item per Registry in the format: `<registry name>: <password>`. In which case you'll specify the secret to use in `dockerRegistryAccountSecret` like so:
@@ -183,6 +196,8 @@ get a prepopulated URL that points to your Halyard daemon within the cluster. Th
 hal --daemon-endpoint $DAEMON_ENDPOINT config security authn oauth2 enable
 $HAL_COMMAND config security authn oauth2 enable
 ```
+
+If you need to give halyard additional parameters when it deploys Spinnaker, you can specify them with `halyard.additionalInstallParameters`.
 
 If you would rather the chart make the config file for you, you can set `halyard.additionalScripts.create` to `true` and then populate `halyard.additionalScripts.data.SCRIPT_NAME.sh` with the bash script you'd like to run. If you need associated configmaps or secrets you can configure those to be created as well:
 
@@ -284,6 +299,14 @@ This will result in the specified BOM contents being written to a `1.16.1.yml` B
 halyard:
   annotations:
     iam.amazonaws.com/role: <role_arn>
+```
+
+### Set custom annotations for the halyard serviceaccount
+
+```yaml
+serviceAccount:
+  serviceAccountAnnotations:
+    eks.amazonaws.com/role-arn: <role_arn>
 ```
 
 ### Set environment variables on the halyard pod

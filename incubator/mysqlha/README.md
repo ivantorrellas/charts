@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # MySQL - Single Master, Multiple Slaves
 
 [MySQL](https://MySQL.org) is one of the most popular database servers in the world. Notable users include Wikipedia, Facebook and Google.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Introduction
 
@@ -8,7 +17,7 @@ This chart bootstraps a single master and multiple slave MySQL deployment on a [
 
 ## Prerequisites
 
-- Kubernetes 1.6+
+- Kubernetes 1.10+ with Beta APIs enabled
 - PV provisioner support in the underlying infrastructure
 
 ## Installing the Chart

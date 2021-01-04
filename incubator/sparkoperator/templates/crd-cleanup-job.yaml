@@ -14,6 +14,12 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   template:
+    metadata:
+      name: {{ include "sparkoperator.fullname" . }}-crd-cleanup
+      {{- if .Values.istio.enabled }}
+      annotations:
+        "sidecar.istio.io/inject": "false"
+      {{- end }}
     spec:
       serviceAccountName: {{ include "sparkoperator.serviceAccountName" . }}
       restartPolicy: OnFailure
@@ -23,6 +29,12 @@ spec:
         - name: delete-sparkapp-crd
           image: {{ .Values.operatorImageName }}:{{ .Values.operatorVersion }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          {{- if .Values.securityContext }}
+          securityContext:
+            {{- range $securityPolicy, $value := .Values.securityContext }}
+              {{ $securityPolicy }}: {{ $value }}
+              {{- end }}
+          {{- end }}
           command:
             - "/bin/sh"
             - "-c"
@@ -35,6 +47,12 @@ spec:
         - name: delete-scheduledsparkapp-crd
           image: {{ .Values.operatorImageName }}:{{ .Values.operatorVersion }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          {{- if .Values.securityContext }}
+          securityContext:
+            {{- range $securityPolicy, $value := .Values.securityContext }}
+              {{ $securityPolicy }}: {{ $value }}
+              {{- end }}
+          {{- end }}
           command:
             - "/bin/sh"
             - "-c"

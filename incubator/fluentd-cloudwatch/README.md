@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Fluentd CloudWatch
 
 * Installs [Fluentd](https://www.fluentd.org/) [Cloudwatch](https://aws.amazon.com/cloudwatch/) log forwarder.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## TL;DR;
 
@@ -67,7 +76,9 @@ The following table lists the configurable parameters of the Fluentd Cloudwatch 
 | `rbac.create`                   | If true, create & use RBAC resources                                            | `false`                               |
 | `rbac.serviceAccountName`       | existing ServiceAccount to use (ignored if rbac.create=true)                    | `default`                             |
 | `rbac.pspEnabled`               | PodSecuritypolicy                                                               | `false`                               |
-| `rbac.serviceAccountAnnotations`| Additional Service Account annotations	                                        | `{}`                                  |
+| `rbac.serviceAccountAnnotations`| Additional Service Account annotations                                          | `{}`                                  |
+| `volumeMounts`                  | Add volume mounts to daemon set                                                 | `[]`                                  |
+| `volumes`                       | Add volumes to daemon set                                                       | `[]`                                  |
 | `tolerations`                   | Add tolerations                                                                 | `[]`                                  |
 | `extraVars`                     | Add pod environment variables (must be specified as a single line object)       | `[]`                                  |
 | `updateStrategy`                | Define daemonset update strategy                                                | `OnDelete`                            |

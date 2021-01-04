@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Centrifugo
 
 [Centrifugo](https://github.com/centrifugal/centrifugo) is a real-time messaging server. It's language-agnostic and can be used in conjunction with application backend written in any language - Python, Ruby, Perl, PHP, Javascript, Java, Objective-C etc.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## TL;DR;
 
@@ -45,11 +54,12 @@ The following table lists the configurable parameters of the Centrifugo chart an
 | Parameter                  | Description                           | Default                                                   |
 | -------------------------- | ------------------------------------- | --------------------------------------------------------- |
 | `image.repository`         | Cetrifugo image repository            | `centrifugo/centrifugo`                                   |
-| `image.tag`                | Cetrifugo image tag                   | `v2.1.0`                                                  |
+| `image.tag`                | Cetrifugo image tag                   | `v2.4.0`                                                  |
 | `image.pullPolicy`         | Image pull policy                     | `IfNotPresent`                                            |
 | `resources`                | CPU/Memory resource requests/limits   | `{}`                                                      |
 | `config`                   | Centrifugo config                     | `default`                                                 |
 | `args`                     | Centrifugo args                       | `--config=centrifugo/config.json --admin --health`        |
+| `grpc.enabled`             | Enable grpc support                   | `false`                                                   |
 
 For more information please refer to the [documentation](https://fzambia.gitbooks.io/centrifugal/content/index.html).
 

@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Collabora CODE
 
 [Collabora](https://www.collaboraoffice.com/code/) is a online office suite.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Introduction
 
@@ -75,12 +84,13 @@ The following tables lists the configurable parameters of this chart and their d
 | `ingress.hosts`                                   |                                                               | `[]`                                                        |
 | `ingress.tls`                                     |                                                               | `[]`                                                        |
 | `livenessProbe.enabled`                           | Turn on and off liveness probe                                | `true`                                                      |
-| `livenessProbe.initialDelaySeconds`               | Delay before liveness probe is initiated                      | `30`                                                       |
+| `livenessProbe.initialDelaySeconds`               | Delay before liveness probe is initiated                      | `30`                                                        |
 | `livenessProbe.periodSeconds`                     | How often to perform the probe                                | `10`                                                        |
 | `livenessProbe.timeoutSeconds`                    | When the probe times out                                      | `2`                                                         |
 | `livenessProbe.successThreshold`                  | Minimum consecutive successes for the probe                   | `1`                                                         |
 | `livenessProbe.failureThreshold`                  | Minimum consecutive failures for the probe                    | `3`                                                         |
 | `livenessProbe.scheme`                            | Scheme for the probe                                          | `HTTP`                                                      |
+| `livenessProbe.path`                              | Path for the probe                                            | `/`                                                         |
 | `readinessProbe.enabled`                          | Turn on and off readiness probe                               | `true`                                                      |
 | `readinessProbe.initialDelaySeconds`              | Delay before readiness probe is initiated                     | `30`                                                        |
 | `readinessProbe.periodSeconds`                    | How often to perform the probe                                | `10`                                                        |
@@ -88,6 +98,7 @@ The following tables lists the configurable parameters of this chart and their d
 | `readinessProbe.successThreshold`                 | Minimum consecutive successes for the probe                   | `1`                                                         |
 | `readinessProbe.failureThreshold`                 | Minimum consecutive failures for the probe                    | `3`                                                         |
 | `readinessProbe.scheme`                           | Scheme for the probe                                          | `HTTP`                                                      |
+| `readinessProbe.path`                             | Path for the probe                                            | `/`                                                         |
 | `securityContext.allowPrivilegeEscalation`        | Create & use Pod Security Policy resources                    | `true`                                                      |
 | `securitycontext.capabilities.add`                | Collabora needs to run with MKNOD as capabibility             | `[MKNOD]`                                                   |
 | `resources`                                       | Resources required (e.g. CPU, memory)                         | `{}`                                                        |

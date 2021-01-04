@@ -1,33 +1,33 @@
 dependencies:
 - name: elasticsearch
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.29.0
+  repository: https://charts.helm.sh/stable
+  version: 1.32.5
 - name: kibana
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 3.2.1
+  repository: https://charts.helm.sh/stable
+  version: 3.2.8
 - name: filebeat
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.7.0
+  repository: https://charts.helm.sh/stable
+  version: 3.1.1
 - name: logstash
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.13.0
+  repository: https://charts.helm.sh/stable
+  version: 2.4.1
 - name: fluentd
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.10.0
+  repository: https://charts.helm.sh/stable
+  version: 2.5.1
 - name: fluent-bit
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.10.3
+  repository: https://charts.helm.sh/stable
+  version: 2.10.1
 - name: fluentd-elasticsearch
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  repository: https://charts.helm.sh/stable
   version: 2.0.7
 - name: nginx-ldapauth-proxy
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 0.1.2
+  repository: https://charts.helm.sh/stable
+  version: 0.1.4
 - name: elasticsearch-curator
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.5.0
+  repository: https://charts.helm.sh/stable
+  version: 2.2.1
 - name: elasticsearch-exporter
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.4.1
-digest: sha256:21398a637cab285405e7a72c1f0ce3bc7c98ac41a9ccd125a27f7389503f4f7d
-generated: "2019-06-25T12:04:09.841215-07:00"
+  repository: https://charts.helm.sh/stable
+  version: 2.3.0
+digest: sha256:e652c2854e40b5cd0f399413eae054856fb2070987e9d861372f968b0e304bef
+generated: "2020-10-30T11:39:55.228917-04:00"

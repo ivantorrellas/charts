@@ -1,4 +1,13 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # OpenLDAP Helm Chart
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## Prerequisites Details
 * Kubernetes 1.8+
@@ -34,7 +43,7 @@ The following table lists the configurable parameters of the openldap chart and 
 | `podAnnotations`                   | Annotations to add to the pod                                                                                                             | `{}`                |
 | `existingSecret`                   | Use an existing secret for admin and config user passwords                                                                                | `""`                |
 | `service.annotations`              | Annotations to add to the service                                                                                                         | `{}`                |
-| `service.clusterIP`                | IP address to assign to the service                                                                                                       | `""`                |
+| `service.clusterIP`                | IP address to assign to the service                                                                                                       | `nil`                |
 | `service.externalIPs`              | Service external IP addresses                                                                                                             | `[]`                |
 | `service.ldapPort`                 | External service port for LDAP                                                                                                            | `389`               |
 | `service.loadBalancerIP`           | IP address to assign to load balancer (if supported)                                                                                      | `""`                |
@@ -42,6 +51,7 @@ The following table lists the configurable parameters of the openldap chart and 
 | `service.sslLdapPort`              | External service port for SSL+LDAP                                                                                                        | `636`               |
 | `service.type`                     | Service type                                                                                                                              | `ClusterIP`         |
 | `env`                              | List of key value pairs as env variables to be sent to the docker image. See https://github.com/osixia/docker-openldap for available ones | `[see values.yaml]` |
+| `logLevel`                         | Set the container log level. Valid values: `none`, `error`, `warning`, `info`, `debug`, `trace`                                           | `info`              |
 | `tls.enabled`                      | Set to enable TLS/LDAPS - should also set `tls.secret`                                                                                    | `false`             |
 | `tls.secret`                       | Secret containing TLS cert and key (eg, generated via cert-manager)                                                                       | `""`                |
 | `tls.CA.enabled`                   | Set to enable custom CA crt file - should also set `tls.CA.secret`                                                                        | `false`             |

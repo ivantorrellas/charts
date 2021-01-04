@@ -1,7 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Hoverfly
 
 [Hoverfly](https://hoverfly.io/) is a lightweight, open source API simulation tool. Using Hoverfly, you can create realistic simulations of the APIs your application depends on.
 
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## TL;DR;
 
@@ -52,6 +60,10 @@ The following table lists the configurable parameters of the Hoverfly chart and 
 | `service.externalAdminPort`       | Service Admin port                         | `8888`                                                    |
 | `service.externalProxyPort`       | Service Proxy port                         | `8500`                                                    |
 | `resources`                       | CPU/Memory resource requests/limits        | Memory: `200Mi`, CPU: `0.2`                               |
+| `openshift.route.admin.enabled`   | Create an Openshift route for the Hoverfly Admin Interface | `false` |
+| `openshift.route.admin.hostname`  | Specify the route URL for the Hoverfly Admin Interface     | `""` |
+| `openshift.route.proxy.enabled`   | Create an Openshift route for the Hoverfly Proxy Endpoint  | `false` |
+| `openshift.route.proxy.hostname`  | Specify the route URL for the Hoverfly Proxy Interface     | `""` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 

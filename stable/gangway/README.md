@@ -1,6 +1,15 @@
+# ⚠️ Repo Archive Notice
+
+As of Nov 13, 2020, charts in this repo will no longer be updated.
+For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+
 # Gangway
 
 An application that can be used to easily enable authentication flows via OIDC for a kubernetes cluster.
+
+## DEPRECATION NOTICE
+
+This chart is deprecated and no longer supported.
 
 ## TL;DR
 
@@ -35,6 +44,7 @@ At a minimum you *must* configure any of the values marked as **required** in th
 | Parameter                        | Description                                                                                                                                                                                                     | Default                                            |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | `affinity`                       | List of affinities (requires Kubernetes >=1.6)                                                                                                                                                                  | `{}`                                               |
+| `env`                            | Environment variables to apply to the pod.                                                                                                                                                                      | `{}`                                               |
 | `extraVolumes`                   | List of extra volumes                                                                                                                                                                                           | `[]`                                               |
 | `extraVolumeMounts`              | List of extra volumeMounts                                                                                                                                                                                      | `[]`                                               |
 | `gangway.allowEmptyClientSecret` | Some identity providers accept an empty client secret, this is not generally considered a good idea. If you have to use an empty secret and accept the risks that come with that then you can set this to true. | `false`                                            |
@@ -52,6 +62,7 @@ At a minimum you *must* configure any of the values marked as **required** in th
 | `gangway.port`                   | The port to listen on. Defaults to 8080.                                                                                                                                                                        | `80`                                               |
 | `gangway.redirectURL`            | Where to redirect back to. This should be a URL where gangway is reachable. Typically this also needs to be registered as part of the oauth application with the oAuth provider. **Required**                   | `""`                                               |
 | `gangway.scopes`                 | Used to specify the scope of the requested Oauth authorization.                                                                                                                                                 | `["openid", "profile", "email", "offline_access"]` |
+| `gangway.serviceAccountName`                 | Used to specify an alternative serviceAccount name to be created and used. If not set, default account will be used.                                                                                                                                                | `""` |
 | `gangway.serveTLS`               | Should Gangway serve TLS vs. plain HTTP?                                                                                                                                                                        | `false`                                            |
 | `gangway.sessionKey`             | Encryption key for cookie contents. Will autogenerate if not provided. Caution: Do not use auto generation in production environments.                                                                          | `""`                                               |
 | `gangway.tokenURL`               | OAuth2 URL to obtain access tokens. To be taken from the configuration of your OIDC provider. **Required**                                                                                                      | `""`                                               |
